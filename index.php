@@ -62,11 +62,11 @@
     <div class="col-md-12">
       <br>
       <div class="card">
-        <div class="card-header text-center">
-          Leaflet
+        <div class="card-header text-left">
+          <i class="fas fa-map-marker-alt"></i> Peta Sebaran GudangKu
         </div>
         <div class="card-body">
-          TAH DIDIEU
+         <div id="gudang_maps" style="width:100%;height:500px;"></div>
         </div>
       </div>
     </div>
