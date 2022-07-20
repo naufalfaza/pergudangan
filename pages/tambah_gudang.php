@@ -1,6 +1,18 @@
 <?php include '../struktur/head.php' ?>
 <div class="container-fluid">
 	<div class="form-group row">
+        <div class="col-md-5">
+			<div class="card">
+				<div class="card-header">
+					Mapping Area Gudang
+				</div>
+				<div class="card-body">
+					<div class="col-md-12">
+         				<div id="tambahgudang_maps" style="width:100%;height:300px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="col-md-7">
 			<div class="card">
 				<div class="card-header">
@@ -36,12 +48,19 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<br>
+                            <div class="col-md-6">
 								<div class="form-group row">
-									<label class="col-form-label col-md-2">Alamat Gudang</label>
-									<div class="col-md-10">
-										<input type="text" name="qty" class="form-control" required>
+									<label class="col-form-label col-md-4">Longitude</label>
+									<div class="col-md-8">
+										<input type="text" id="longitude" name="longitude" class="form-control" required>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-form-label col-md-4">Latitude</label>
+									<div class="col-md-8">
+                                        <input type="text" id="latitude" name="latitude" class="form-control" required>
 									</div>
 								</div>
 							</div>
@@ -51,18 +70,6 @@
 							</div>
 						</div>
 					</form>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-5">
-			<div class="card">
-				<div class="card-header">
-					Mapping Area Gudang
-				</div>
-				<div class="card-body">
-					<div class="col-md-12">
-         				<div id="gudang_maps" style="width:100%;height:300px;"></div>
-					</div>
 				</div>
 			</div>
 		</div>

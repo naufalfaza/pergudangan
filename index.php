@@ -11,7 +11,6 @@
 <!-- FontAwesome V5 (KIT BY NAUFAL FAZA FADHILAH) INI NGAMBIL DARI ONLINE-->
 <script src="https://kit.fontawesome.com/54dc7623fb.js" crossorigin="anonymous"></script>
 
-
 <body>
 <div class="container-fluid">
 	<nav class="navbar navbar-expand-lg bg-light">

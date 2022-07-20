@@ -3,9 +3,27 @@
 <!-- Leaflet -->
 <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 <script type="text/javascript">
-    
-//  Latitude, Longitude
+    // Maps Dashboard
+    //  Latitude, Longitude
     var map = L.map('gudang_maps').setView([-6.8980319, 107.6352862], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    //  Icon
+    var gudangIcon = L.icon({
+        iconUrl: '../img/gudang.png',
+        iconSize:     [32, 32], // size of the icon
+        popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
+    });
+    
+    L.marker([-6.8980319, 107.6352862], {icon: gudangIcon}).addTo(map)
+        .bindPopup('<b>Gudang</b>');
+</script>
+<script type="text/javascript">
+    // Maps Tambah Gudang
+    var map = L.map('tambahgudang_maps').setView([-6.171505880059564, 106.82650155849288], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -13,53 +31,21 @@
     
 //  Icon
     var gudangIcon = L.icon({
-        iconUrl: 'img/gudang.png',
+        iconUrl: '../img/gudang.png',
         iconSize:     [32, 32], // size of the icon
         popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
     });
     
-    L.marker([-6.8980319, 107.6352862], {icon: gudangIcon}).addTo(map)
-        .bindPopup('<b>Gudang</b>');
-
-//osm layer
-    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//    L.marker([-6.8980319, 107.6352862], {icon: gudangIcon}).addTo(map).bindPopup('<b>Gudang</b>');
+    // get coordinate
+    map.on('click', function(e){
+        var coord = e.latlng.toString().split(',');
+        var lat = coord[0].split('(');
+        var lng = coord[1].split(')');
+        document.getElementById("longitude").value = lng[0];
+        document.getElementById("latitude").value = lat[1];
+        L.marker([lat[1], lng[0]], {icon: gudangIcon}).addTo(map).bindPopup('<b>Gudang</b>');
     });
-    osm.addTo(map);
-
-    if(!navigator.geolocation) {
-        console.log("Your browser doesn't support geolocation feature!")
-    } else {
-        setInterval(() => {
-            navigator.geolocation.getCurrentPosition(getPosition)
-        }, 5000);
-    }
-
-    var marker, circle;
-
-    function getPosition(position){
-        // console.log(position)
-        var lat = position.coords.latitude
-        var long = position.coords.longitude
-        var accuracy = position.coords.accuracy
-
-        if(marker) {
-            map.removeLayer(marker)
-        }
-
-        if(circle) {
-            map.removeLayer(circle)
-        }
-
-        marker = L.marker([lat, long])
-        circle = L.circle([lat, long], {radius: accuracy})
-
-        var featureGroup = L.featureGroup([marker, circle]).addTo(map)
-
-        map.fitBounds(featureGroup.getBounds())
-
-        console.log("Your coordinate is: Lat: "+ lat +" Long: "+ long+ " Accuracy: "+ accuracy)
-    }
 </script>
 </body>
 </html>
