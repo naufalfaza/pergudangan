@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<form action="../proses.php?aksi=tambah_barang" method="post">
+					<form action="../proses.php?aksi=update_gudang" method="post">
 						<div class="form-group row">
 							<div class="col-md-6">
 								<div class="form-group row">
