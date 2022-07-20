@@ -29,5 +29,14 @@ $aksi = $_GET['aksi'];
  		$message = "Page Tidak Ditemukan";
 		echo "<script type='text/javascript'>alert('$message');</script>";
  	}
+ } elseif ($aksi == "tambah_gudang") {
+     $nama = $_POST['nama'];
+     $ktgr = $_POST['kategori'];
+     $long = $_POST['longitude'];
+     $lat = $_POST['latitude']; 
+     
+     $db->input_gudang($nama, $ktgr, $long, $lat, "Y");
+     
+     header("location:pages/gudang.php");
  }
 ?>
