@@ -21,7 +21,7 @@
 							Tambah Gudang
 						</div>
 						<div class="col-md-2">
-							<a href="barang.php" class="btn btn-outline-danger btn-sm col-md-12"><i class="fas fa-arrow-left"></i> Kembali</a>
+							<a href="gudang.php" class="btn btn-outline-danger btn-sm col-md-12"><i class="fas fa-arrow-left"></i> Kembali</a>
 						</div>
 					</div>
 				</div>
