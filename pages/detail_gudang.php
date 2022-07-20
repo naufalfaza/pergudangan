@@ -62,7 +62,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Longitude</label>
 									<div class="col-md-8">
-										<input type="text" id="longitude" name="longitude" class="form-control" required value="<?php echo $data['longitude'] ?>">
+										<input type="text" id="longitude" name="longitude" class="form-control" required value="<?php echo $data['longitude'] ?>" readonly>
 									</div>
 								</div>
 							</div>
@@ -71,7 +71,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Latitude</label>
 									<div class="col-md-8">
-                                        <input type="text" id="latitude" name="latitude" class="form-control" required value="<?php echo $data['latitude'] ?>">
+                                        <input type="text" id="latitude" name="latitude" class="form-control" required value="<?php echo $data['latitude'] ?>" readonly>
 									</div>
 								</div>
 							</div>
@@ -86,6 +86,7 @@
 		</div>
 	</div>
 </div>
+<?php include '../struktur/foot.php' ?>
 <script type="text/javascript">
     // Maps Dashboard
     //  Latitude, Longitude
@@ -104,6 +105,14 @@
     
     L.marker([<?php echo $data['latitude'] ?>, <?php echo $data['longitude'] ?>], {icon: gudangIcon}).addTo(map)
         .bindPopup('<b>Gudang</b>');
+     // get coordinate
+    map.on('click', function(e){
+        var coord = e.latlng.toString().split(',');
+        var lat = coord[0].split('(');
+        var lng = coord[1].split(')');
+        document.getElementById("longitude").value = lng[0];
+        document.getElementById("latitude").value = lat[1];
+        L.marker([lat[1], lng[0]], {icon: gudangIcon}).addTo(map).bindPopup('<b>Gudang</b>');
+    });
 </script> 
 <?php } ?>
-<?php include '../struktur/foot.php' ?>

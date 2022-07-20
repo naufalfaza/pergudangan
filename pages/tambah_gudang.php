@@ -56,7 +56,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Longitude</label>
 									<div class="col-md-8">
-										<input type="text" id="longitude" name="longitude" class="form-control" required>
+										<input type="text" id="longitude" name="longitude" class="form-control" required readonly>
 									</div>
 								</div>
 							</div>
@@ -65,7 +65,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Latitude</label>
 									<div class="col-md-8">
-                                        <input type="text" id="latitude" name="latitude" class="form-control" required>
+                                        <input type="text" id="latitude" name="latitude" class="form-control" required readonly>
 									</div>
 								</div>
 							</div>
