@@ -68,7 +68,7 @@ class config{
 	}
     
     function input_gudang($nama, $ktgr, $long, $lat, $status){
-		mysql_query("insert into gudang values('$nama','$ktgr','$long','$lat','$status')");
+		mysql_query("insert into gudang (nama,kategori,longitude,latitude,status) values('$nama','$ktgr','$long','$lat','$status')");
 
 	}
 }
