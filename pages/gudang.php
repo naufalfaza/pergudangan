@@ -15,13 +15,14 @@
 				</div>
 				<div class="card-body">
 					<div class="col-md-12">
-						<table class="table table-striped table-bordered border-dark">
+						<table class="table table-striped table-bordered border-dark" width="100%">
 						  <thead>
 						    <tr>
-						      <th class="text-center">No</th>
-						      <th class="text-center">Nama Gudang</th>
-						      <th class="text-center">Staus Gudang</th>
-						      <th class="text-center">#</th>
+						      <th class="text-center" width="5%">No</th>
+						      <th class="text-center" width="40%">Nama Gudang</th>
+                              <th class="text-center" width="30%">Kategori</th>
+						      <th class="text-center" width="10%">Status Gudang</th>
+						      <th class="text-center" width="25%">#</th>
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -34,6 +35,7 @@
 						    <tr>
 						      <td class="text-center"><?php echo $no++; ?></td>
 						      <td class="text-center"><?php echo $result['nama']; ?></td>
+                              <td class="text-center"><?php echo $result['kategori']; ?></td>
 						      <td class="text-center">
 						      	<?php if ($result['status'] == "Y") { ?>
 						      		<span class="badge text-bg-success"><i class="fas fa-check"></i> Aktif</span>
