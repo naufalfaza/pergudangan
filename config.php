@@ -36,9 +36,24 @@ class config{
 		return $hasil;
 	}
 
+	// MENAMPILKAN DETAIL GUDANG
+	function detail_gudang($id){
+		$data = mysql_query("select * from gudang where id = '$id'");
+		while($d = mysql_fetch_array($data)){
+			$hasil[] = $d;
+		}
+		return $hasil;
+	}
+
 	// PROSES PENGINPUTAN BARANG
 	function input_barang($nama,$kategori,$qty,$id_gudang,$harga,$status){
 		mysql_query("insert into barang  (nama,kategori,qty,id_gudang,harga,status) values('$nama','$kategori','$qty','$id_gudang','$harga','$status')");
+
+	}	
+
+	// PROSES UPDATE BARANG
+	function update_barang($id,$nama,$kategori,$qty,$id_gudang,$harga){
+		mysql_query("update barang set  nama = '$nama',kategori = '$kategori', qty = '$qty',id_gudang = '$id_gudang',harga = '$harga' where id = '$id'");
 
 	}	
 

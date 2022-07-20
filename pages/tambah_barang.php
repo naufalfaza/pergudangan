@@ -33,6 +33,9 @@
 											<option></option>
 											<option value="elektronik">Eletronik</option>
 											<option value="baju">Baju</option>
+											<option value="makanan">Makanan</option>
+											<option value="minuman">Minuman</option>
+											<option value="sukucadang">Part /Suku Cadang</option>
 										</select>
 									</div>
 								</div>
@@ -50,7 +53,16 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Gudang</label>
 									<div class="col-md-8">
-										<input type="text" name="id_gudang" class="form-control" value="1" required>
+										<select class="form-control" name="id_gudang">
+											<option></option>
+											<?php 
+											include '../config.php';
+											$db = new config();
+											foreach ($db->data_gudang() as $result) { 
+											?>
+												<option value="<?php echo $result['id'];?>"><?php echo $result['nama'];?></option>
+											<?php } ?>
+										</select>
 									</div>
 								</div>
 							</div>

@@ -13,6 +13,15 @@ $aksi = $_GET['aksi'];
  	// REDIRECT
  	header("location:pages/barang.php");
 
+ // PROSES UPDATE BARANG
+ }elseif($aksi == "update_barang"){
+
+ 	// PROSES UPDATE
+ 	$db->update_barang($_POST['id'],$_POST['nama'],$_POST['kategori'],$_POST['qty'],$_POST['id_gudang'],$_POST['harga']);
+ 	
+ 	// REDIRECT
+ 	header("location:pages/detail_barang.php?id=".$_POST['id']);
+
  // PROSES SEARCH PAGE
  }elseif($aksi == "search"){
  	if (strtoupper($_POST['cari']) == "BARANG") {

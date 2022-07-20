@@ -22,12 +22,13 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<form action="../proses.php?aksi=tambah_barang" method="post">
+					<form action="../proses.php?aksi=update_barang" method="post">
 						<div class="form-group row">
 							<div class="col-md-5">
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Nama Barang</label>
 									<div class="col-md-8">
+										<input type="hidden" name="id" class="form-control" value="<?php echo $data['id']?>" required>
 										<input type="text" name="nama" class="form-control" value="<?php echo $data['nama']?>" required>
 									</div>
 								</div>
@@ -57,7 +58,14 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Gudang</label>
 									<div class="col-md-8">
-										<input type="text" name="id_gudang" class="form-control" value="1" required>
+										<select class="form-control" name="id_gudang">
+											<option></option>
+											<?php 
+											foreach ($db->detail_gudang($data['id_gudang']) as $result) { 
+											?>
+												<option value="<?php echo $result['id'];?>" selected><?php echo $result['nama'];?></option>
+											<?php } ?>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -72,7 +80,7 @@
 							</div>
 							<div class="col-md-12">
 								<br>
-								<button type="submit" class="btn btn-outline-info btn-sm col-md-12"><i class="fas fa-download"></i> Simpan Data</button>
+								<button type="submit" class="btn btn-outline-info btn-sm col-md-12"><i class="fas fa-download"></i> Ubah Data</button>
 							</div>
 						</div>
 					</form>
