@@ -36,7 +36,7 @@ $aksi = $_GET['aksi'];
     $db->update_gudang($_POST['id'],$_POST['nama'], $_POST['kategori'], $_POST['longitude'], $_POST['latitude']);
  	
  	// REDIRECT
- 	header("location:pages/detail_barang.php?id=".$_POST['id']);
+ 	header("location:pages/detail_gudang.php?id=".$_POST['id']);
 
  // PROSES SEARCH PAGE
  }elseif($aksi == "search"){
