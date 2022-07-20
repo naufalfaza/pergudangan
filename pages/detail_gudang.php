@@ -50,7 +50,7 @@
 										<select class="form-control" id="kategori" name="kategori" required>
 											<option></option>
                                             <?php
-                                            if ($data['kategori'] == "elekronik") {
+                                            if ($data['kategori'] == "elektronik") {
                                                 $el = "selected"; $ba = ""; $ma = ""; $mi = ""; $pa = "";
                                             } elseif ($data['kategori'] == "baju") {
                                                 $el = ""; $ba = "selected"; $ma = ""; $mi = ""; $pa = "";
@@ -62,7 +62,7 @@
                                                 $el = ""; $ba = ""; $ma = ""; $mi = ""; $pa = "selected";
                                             }
                                             ?>
-											<option value="elektronik" <?= $el ?>></optio>>Eletronik</option>
+											<option value="elektronik" <?= $el ?>></option>
 											<option value="baju" <?= $ba ?>>Baju</option>
 											<option value="makanan" <?= $ma ?>>Makanan</option>
 											<option value="minuman" <?= $mi ?>>Minuman</option>
