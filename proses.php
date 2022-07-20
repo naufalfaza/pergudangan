@@ -13,11 +13,27 @@ $aksi = $_GET['aksi'];
  	// REDIRECT
  	header("location:pages/barang.php");
 
+ // PROSES TAMBAH GUDANG
+ }elseif ($aksi == "tambah_gudang"){
+
+     $db->input_gudang($_POST['nama'], $_POST['kategori'], $_POST['longitude'], $_POST['latitude'], "Y");
+     
+     header("location:pages/gudang.php");
+
  // PROSES UPDATE BARANG
  }elseif($aksi == "update_barang"){
 
  	// PROSES UPDATE
  	$db->update_barang($_POST['id'],$_POST['nama'],$_POST['kategori'],$_POST['qty'],$_POST['id_gudang'],$_POST['harga']);
+ 	
+ 	// REDIRECT
+ 	header("location:pages/detail_barang.php?id=".$_POST['id']);
+
+ // PROSES UPDATE GUDANG
+ }elseif($aksi == "update_gudang"){
+
+ 	// PROSES UPDATE
+    $db->update_gudang($_POST['id'],$_POST['nama'], $_POST['kategori'], $_POST['longitude'], $_POST['latitude']);
  	
  	// REDIRECT
  	header("location:pages/detail_barang.php?id=".$_POST['id']);
@@ -38,14 +54,5 @@ $aksi = $_GET['aksi'];
  		$message = "Page Tidak Ditemukan";
 		echo "<script type='text/javascript'>alert('$message');</script>";
  	}
- } elseif ($aksi == "tambah_gudang") {
-     $nama = $_POST['nama'];
-     $ktgr = $_POST['kategori'];
-     $long = $_POST['longitude'];
-     $lat = $_POST['latitude']; 
-     
-     $db->input_gudang($nama, $ktgr, $long, $lat, "Y");
-     
-     header("location:pages/gudang.php");
  }
 ?>

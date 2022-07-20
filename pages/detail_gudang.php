@@ -38,6 +38,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Nama Gudang</label>
 									<div class="col-md-8">
+										<input type="hidden" name="id" class="form-control" value="<?php echo $data['id'] ?>" required>
 										<input type="text" name="nama" class="form-control" value="<?php echo $data['nama'] ?>" required>
 									</div>
 								</div>
@@ -77,7 +78,7 @@
 							</div>
 							<div class="col-md-12">
 								<br>
-								<button type="submit" class="btn btn-outline-info btn-sm col-md-12"><i class="fas fa-download"></i> Simpan Data</button>
+								<button type="submit" class="btn btn-outline-info btn-sm col-md-12"><i class="fas fa-download"></i> Ubah Data</button>
 							</div>
 						</div>
 					</form>

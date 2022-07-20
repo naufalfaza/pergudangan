@@ -14,40 +14,38 @@
 <body>
 <div class="container-fluid">
 	<nav class="navbar navbar-expand-lg bg-light">
-	  <div class="container-fluid">
-	    <a class="navbar-brand" href="#"><img src="img/warehouse.png"> GudangKu</a>
-	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	    </button>
-	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-	        <li class="nav-item">
-	          <a class="nav-link" href="pages/barang.php"><i class="fas fa-database"></i> Barang</a>
-	        </li>
-	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	            <i class="fas fa-cogs"></i> Konfigurasi
-	          </a>
-	          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-	            <li><a class="dropdown-item" href="#">Kategori</a></li>
-	          </ul>
-	        </li>
-	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	            <i class="fas fa-exchange"></i> Transaksi
-	          </a>
-	          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-	            <li><a class="dropdown-item" href="#">Barang Rusak</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	      <form class="d-flex" role="search" action="../proses.php?aksi=search" method="post">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../img/warehouse.png"> GudangKu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="barang.php"><i class="fas fa-database"></i> Barang</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gudang.php"><i class="fas fa-boxes"></i> Gudang</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-exchange"></i> Transaksi
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Barang Rusak</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" action="../proses.php?aksi=search" method="post">
           <input class="form-control me-2" name="cari" type="search" placeholder="Search" aria-label="Search" style="text-transform:uppercase">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-	    </div>
-	  </div>
-	</nav>
+      </div>
+    </div>
+  </nav>
 </div>
 <br>
 <div class="container-fluid">
