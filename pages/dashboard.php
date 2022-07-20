@@ -1,4 +1,9 @@
 <?php include '../struktur/head.php' ?>
+<?php 
+  include '../config.php';
+  $db = new config();
+  $hitung_barang = $db->hitung_barang();
+?>
 <div class="container-fluid">
   <div class="form-group row">
     <div class="col-md-12">
@@ -12,7 +17,7 @@
           <label class="col-form-label col-md-12">Jumlah Barang Yang Masuk</label>
         </div>
         <div class="card-body">
-          <label class="col-form-label col-md-12"><h3>30</h3></label>
+          <label class="col-form-label col-md-12"><h3><?php echo $hitung_barang ?></h3></label>
         </div>
         <div class="card-footer">
           <a class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>

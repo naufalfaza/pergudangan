@@ -28,6 +28,9 @@
 	        <li class="nav-item">
 	          <a class="nav-link" href="barang.php"><i class="fas fa-database"></i> Barang</a>
 	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="gudang.php"><i class="fas fa-boxes"></i> Gudang</a>
+	        </li>
 	        <li class="nav-item dropdown">
 	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 	            <i class="fas fa-cogs"></i> Konfigurasi
