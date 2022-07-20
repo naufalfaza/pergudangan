@@ -70,7 +70,7 @@ class config{
 
 	// PROSES UPDATE GUDANG
 	function update_gudang($id,$nama, $ktgr, $long, $lat){
-		mysql_query("update barang set  nama = '$nama',kategori = '$kategori', qty = '$qty',id_gudang = '$id_gudang',harga = '$harga' where id = '$id'");
+		mysql_query("update gudang set  nama = '$nama',kategori = '$ktgr', longitude = '$long',latitude = '$lat' where id = '$id'");
 	}	
 
 	
