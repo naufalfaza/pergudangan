@@ -39,8 +39,26 @@
 									<div class="col-md-8">
 										<select class="form-control" id="kategori" name="kategori" required>
 											<option></option>
-											<option value="elektronik">Eletronik</option>
-											<option value="baju">Baju</option>
+                                            <?php
+                                            if ($data['kategori'] == "elektronik") {
+                                                $el = "selected"; $ba = ""; $ma = ""; $mi = ""; $pa = "";
+                                            } elseif ($data['kategori'] == "baju") {
+                                                $el = ""; $ba = "selected"; $ma = ""; $mi = ""; $pa = "";
+                                            } elseif ($data['kategori'] == "makanan") {
+                                                $el = ""; $ba = ""; $ma = "selected"; $mi = ""; $pa = "";
+                                            } elseif ($data['kategori'] == "minuman") {
+                                                $el = ""; $ba = ""; $ma = ""; $mi = "selected"; $pa = "";
+                                            }elseif ($data['kategori'] == "sukucadang") {
+                                                $el = ""; $ba = ""; $ma = ""; $mi = ""; $pa = "selected";
+                                            } else {
+                                                $el = ""; $ba = ""; $ma = ""; $mi = ""; $pa = "";
+                                            }
+                                            ?>
+											<option value="elektronik" <?= $el ?>>Elektronik</option>
+											<option value="baju" <?= $ba ?>>Baju</option>
+											<option value="makanan" <?= $ma ?>>Makanan</option>
+											<option value="minuman" <?= $mi ?>>Minuman</option>
+											<option value="sukucadang" <?= $pa ?>>Part /Suku Cadang</option>
 										</select>
 									</div>
 								</div>

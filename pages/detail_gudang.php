@@ -50,7 +50,7 @@
 										<select class="form-control" id="kategori" name="kategori" required>
 											<option></option>
                                             <?php
-                                            if ($data['kategori'] == "elekronik") {
+                                            if ($data['kategori'] == "elektronik") {
                                                 $el = "selected"; $ba = ""; $ma = ""; $mi = ""; $pa = "";
                                             } elseif ($data['kategori'] == "baju") {
                                                 $el = ""; $ba = "selected"; $ma = ""; $mi = ""; $pa = "";
@@ -95,6 +95,41 @@
 							</div>
 						</div>
 					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br>
+			<div class="card">
+				<div class="card-header">
+					Data Barang Yang Ada Di Gudang <?php echo $data['nama'] ?>
+				</div>
+				<div class="card-body">
+					<div class="col-md-12">
+						<table class="table table-striped table-bordered border-dark">
+						  <thead>
+						    <tr>
+						      <th class="text-center">No</th>
+						      <th class="text-center">Nama Barang</th>
+						      <th class="text-center">QTY</th>
+						      <th class="text-center">#</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<?php 
+								$no = 1;
+								foreach ($db->detail_barang_gudang($data['id']) as $result) {
+						  	?>
+						    <tr>
+						      <td class="text-center"><?php echo $no++; ?></td>
+						      <td class="text-center"><?php echo $result['nama']; ?></td>
+						      <td class="text-center"><?php echo $result['qty']; ?></td>
+						      <td class="text-center"><a href="detail_barang.php?id=<?=$result['id']?>" class="btn btn-outline-info btn-sm col-md-6"><i class="fas fa-search"></i> Detail</a></td>
+						    </tr>
+							<?php } ?>
+						  </tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

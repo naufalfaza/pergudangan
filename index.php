@@ -22,9 +22,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="barang.php"><i class="fas fa-database"></i> Barang</a>
           </li>
           <li class="nav-item">

@@ -54,6 +54,15 @@ class config{
 		return $hasil;
 	}
 
+	// MENAMPILKAN DETAIL BARANG YANG ADA DIGUDANG
+	function detail_barang_gudang($id){
+		$data = mysql_query("select * from barang where id_gudang = '$id'");
+		while($d = mysql_fetch_array($data)){
+			$hasil[] = $d;
+		}
+		return $hasil;
+	}
+
 	// PROSES PENGINPUTAN BARANG
 	function input_barang($nama,$kategori,$qty,$id_gudang,$harga,$status){
 		mysql_query("insert into barang  (nama,kategori,qty,id_gudang,harga,status) values('$nama','$kategori','$qty','$id_gudang','$harga','$status')");
