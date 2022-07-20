@@ -1,4 +1,10 @@
 <?php include '../struktur/head.php' ?>
+<?php 
+	$id = $_GET['id'];
+	include '../config.php';
+	$db = new config;
+	foreach ($db->detail_gudang($id) as $data) { 
+?>
 <div class="container-fluid">
 	<div class="form-group row">
         <div class="col-md-5">
@@ -8,7 +14,7 @@
 				</div>
 				<div class="card-body">
 					<div class="col-md-12">
-         				<div id="tambahgudang_maps" style="width:100%;height:300px;"></div>
+         				<div id="detailgudang_maps" style="width:100%;height:300px;"></div>
 					</div>
 				</div>
 			</div>
@@ -18,10 +24,10 @@
 				<div class="card-header">
 					<div class="form-group row">
 						<div class="col-md-10">
-							Tambah Gudang
+							Detail Gudang
 						</div>
 						<div class="col-md-2">
-							<a href="barang.php" class="btn btn-outline-danger btn-sm col-md-12"><i class="fas fa-arrow-left"></i> Kembali</a>
+							<a href="gudang.php" class="btn btn-outline-danger btn-sm col-md-12"><i class="fas fa-arrow-left"></i> Kembali</a>
 						</div>
 					</div>
 				</div>
@@ -32,7 +38,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Nama Gudang</label>
 									<div class="col-md-8">
-										<input type="text" name="nama" class="form-control" required>
+										<input type="text" name="nama" class="form-control" value="<?php echo $data['nama'] ?>" required>
 									</div>
 								</div>
 							</div>
@@ -56,7 +62,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Longitude</label>
 									<div class="col-md-8">
-										<input type="text" id="longitude" name="longitude" class="form-control" required>
+										<input type="text" id="longitude" name="longitude" class="form-control" required value="<?php echo $data['longitude'] ?>">
 									</div>
 								</div>
 							</div>
@@ -65,7 +71,7 @@
 								<div class="form-group row">
 									<label class="col-form-label col-md-4">Latitude</label>
 									<div class="col-md-8">
-                                        <input type="text" id="latitude" name="latitude" class="form-control" required>
+                                        <input type="text" id="latitude" name="latitude" class="form-control" required value="<?php echo $data['latitude'] ?>">
 									</div>
 								</div>
 							</div>
@@ -80,4 +86,24 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+    // Maps Dashboard
+    //  Latitude, Longitude
+    var map = L.map('detailgudang_maps').setView([<?php echo $data['latitude'] ?>, <?php echo $data['longitude'] ?>], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    //  Icon
+    var gudangIcon = L.icon({
+        iconUrl: '../img/gudang.png',
+        iconSize:     [32, 32], // size of the icon
+        popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
+    });
+    
+    L.marker([<?php echo $data['latitude'] ?>, <?php echo $data['longitude'] ?>], {icon: gudangIcon}).addTo(map)
+        .bindPopup('<b>Gudang</b>');
+</script> 
+<?php } ?>
 <?php include '../struktur/foot.php' ?>
