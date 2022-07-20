@@ -62,7 +62,7 @@
                                                 $el = ""; $ba = ""; $ma = ""; $mi = ""; $pa = "selected";
                                             }
                                             ?>
-											<option value="elektronik" <?= $el ?>></optio>>Eletronik</option>
+											<option value="elektronik" <?= $el ?>></option>
 											<option value="baju" <?= $ba ?>>Baju</option>
 											<option value="makanan" <?= $ma ?>>Makanan</option>
 											<option value="minuman" <?= $mi ?>>Minuman</option>
