@@ -15,17 +15,17 @@
 <div class="container-fluid">
 	<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="../img/warehouse.png"> GudangKu</a>
+      <a class="navbar-brand" href="#"><img src="img/warehouse.png"> GudangKu</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="barang.php"><i class="fas fa-database"></i> Barang</a>
+            <a class="nav-link" href="pages/barang.php"><i class="fas fa-database"></i> Barang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="gudang.php"><i class="fas fa-boxes"></i> Gudang</a>
+            <a class="nav-link" href="pages/gudang.php"><i class="fas fa-boxes"></i> Gudang</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,7 +36,7 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex" role="search" action="../proses.php?aksi=search" method="post">
+        <form class="d-flex" role="search" action="proses.php?aksi=search" method="post">
           <input class="form-control me-2" name="cari" type="search" placeholder="Search" aria-label="Search" style="text-transform:uppercase">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -124,7 +124,7 @@
 <script type="text/javascript">
     
 //  Latitude, Longitude
-    var map = L.map('gudang_maps').setView([-6.8980319, 107.6352862], 13);
+    var map = L.map('tambahgudang_maps').setView([-6.8980319, 107.6352862], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

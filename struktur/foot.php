@@ -5,7 +5,8 @@
 <script type="text/javascript">
     // Maps Dashboard
     //  Latitude, Longitude
-    var map = L.map('gudang_maps').setView([-6.8980319, 107.6352862], 13);
+
+    var map = L.map('gudang_maps').setView([-6.9053933, 107.5771494], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -18,8 +19,11 @@
         popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
     });
     
-    L.marker([-6.8980319, 107.6352862], {icon: gudangIcon}).addTo(map)
-        .bindPopup('<b>Gudang</b>');
+    <?php 
+        foreach ($db->data_gudang() as $result) {
+    ?>
+    L.marker([<?php echo $result['latitude']; ?>, <?php echo $result['longitude']; ?>], {icon: gudangIcon}).addTo(map).bindPopup('<b><?php echo $result['nama'] ." ".$result['kategori']; ?></b>');
+    <?php } ?>
 </script>
 <script type="text/javascript">
     // Maps Tambah Gudang
