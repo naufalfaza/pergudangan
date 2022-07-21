@@ -24,7 +24,12 @@
 				<div class="card-header">
 					<div class="form-group row">
 						<div class="col-md-10">
-							Detail Gudang
+							Detail Gudang 
+							<?php if($data['status'] == "N"){ ?>
+								<span class="badge text-bg-danger"><i class="fas fa-times"></i> Non-Aktif</span>
+							<?php }else{ ?>
+								<span class="badge text-bg-success"><i class="fas fa-check"></i> Aktif</span>
+							<?php } ?>
 						</div>
 						<div class="col-md-2">
 							<a href="gudang.php" class="btn btn-outline-danger btn-sm col-md-12"><i class="fas fa-arrow-left"></i> Kembali</a>
@@ -93,6 +98,25 @@
 								<br>
 								<button type="submit" class="btn btn-outline-info btn-sm col-md-12"><i class="fas fa-download"></i> Ubah Data</button>
 							</div>
+						</div>
+					</form>
+					<form action="../proses.php?aksi=update_status_gudang" method="post">
+						<div class="form-group row">
+						<?php if ($data['status'] != "N") {?>
+							<div class="col-md-12">
+								<br>
+								<input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+								<input type="hidden" name="status" value="N">
+								<button type="submit" class="btn btn-outline-danger btn-sm col-md-12"><i class="fas fa-times"></i> Non-Aktifkan Gudang</button>
+							</div>
+						<?php }else{ ?>
+							<div class="col-md-12">
+								<br>
+								<input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+								<input type="hidden" name="status" value="Y">
+								<button type="submit" class="btn btn-outline-success btn-sm col-md-12"><i class="fas fa-check"></i> Aktifkan Gudang</button>
+							</div>
+						<?php } ?>
 						</div>
 					</form>
 				</div>

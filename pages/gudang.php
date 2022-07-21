@@ -40,7 +40,7 @@
 						      	<?php if ($result['status'] == "Y") { ?>
 						      		<span class="badge text-bg-success"><i class="fas fa-check"></i> Aktif</span>
 						      	<?php }else{ ?>
-						      		<span class="badge text-bg-success"><i class="fas fa-times"></i> Non - Aktif</span>
+						      		<span class="badge text-bg-danger"><i class="fas fa-times"></i> Non - Aktif</span>
 						      	<?php } ?>
 						      </td>
 						      <td class="text-center"><a href="detail_gudang.php?id=<?=$result['id']?>" class="btn btn-outline-info btn-sm col-md-6"><i class="fas fa-search"></i> Detail</a></td>

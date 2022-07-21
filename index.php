@@ -1,3 +1,10 @@
+<?php 
+  include 'config.php';
+  $db = new config();
+  $hitung_barang = $db->hitung_barang();
+  $hitung_gudang_aktif = $db->hitung_gudang_aktif();
+  $hitung_gudang_nonaktif = $db->hitung_gudang_nonaktif();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,55 +59,42 @@
       <label class="col-form-label col-md-12"><h2><i class="fas fa-home"></i> Dasboard</h2></label>
       <hr>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="card bg-secondary text-white">
         <div class="card-header">
           <label class="col-form-label col-md-12">Jumlah Barang Yang Masuk</label>
         </div>
         <div class="card-body">
-          <label class="col-form-label col-md-12"><h3>30</h3></label>
+          <label class="col-form-label col-md-12"><h3><?php echo $hitung_barang ?></h3></label>
         </div>
         <div class="card-footer">
-          <a class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
+          <a href="pages/barang.php" class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="card bg-danger text-white">
         <div class="card-header">
-          <label class="col-form-label col-md-12">Jumlah Barang Yang Di Kembalikan</label>
+          <label class="col-form-label col-md-12">Jumlah Gudang Yang Non-Aktif</label>
         </div>
         <div class="card-body">
-          <label class="col-form-label col-md-12"><h3>30</h3></label>
+          <label class="col-form-label col-md-12"><h3><?php echo $hitung_gudang_nonaktif ?></h3></label>
         </div>
         <div class="card-footer">
-          <a class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
+          <a href="pages/gudang.php" class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card bg-warning">
-        <div class="card-header">
-          <label class="col-form-label col-md-12">Jumlah Barang Dalam Pengiriman</label>
-        </div>
-        <div class="card-body">
-          <label class="col-form-label col-md-12"><h3>30</h3></label>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="card bg-success text-white">
         <div class="card-header">
-          <label class="col-form-label col-md-12">Jumlah Barang Dalam Pengiriman</label>
+          <label class="col-form-label col-md-12">Jumlah Gudang Yang Aktif</label>
         </div>
         <div class="card-body">
-          <label class="col-form-label col-md-12"><h3>30</h3></label>
+          <label class="col-form-label col-md-12"><h3><?php echo $hitung_gudang_aktif ?></h3></label>
         </div>
         <div class="card-footer">
-          <a class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
+          <a href="pages/gudang.php" class="btn btn-outline-light btn-sm col-md-12"><i class="fas fa-arrow-right"></i> More Info</a>
         </div>
       </div>
     </div>
@@ -137,10 +131,7 @@
         popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
     });
     
-    <?php 
-    include 'config.php'; 
-    $db = new config(); 
-    foreach ($db->data_gudang() as $result) {?>
+    <?php foreach ($db->data_gudang() as $result) {?>
     L.marker([<?php echo $result['latitude']; ?>, <?php echo $result['longitude']; ?>], {icon: gudangIcon}).addTo(map).bindPopup('<b><?php echo $result['nama'] ." ".$result['kategori']; ?></b>');
     <?php } ?>
 </script>

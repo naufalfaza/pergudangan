@@ -58,7 +58,7 @@
 											<?php 
 											include '../config.php';
 											$db = new config();
-											foreach ($db->data_gudang() as $result) { 
+											foreach ($db->data_gudang_aktif() as $result) { 
 											?>
 												<option value="<?php echo $result['id'];?>"><?php echo $result['nama'];?></option>
 											<?php } ?>

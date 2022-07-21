@@ -13,7 +13,21 @@ class config{
 
 	// MENGHITUNG DATA BARANG SECARA KESELURUHAN 
 	function hitung_barang(){
-		$result =  mysql_query("select count(*) as total from barang");
+		$result =  mysql_query("select sum(qty) as total from barang");
+		$data = mysql_fetch_assoc($result);
+		return $data['total'];
+	}
+
+	// MENGHITUNG DATA GUDANG YANG AKTIF 
+	function hitung_gudang_aktif(){
+		$result =  mysql_query("select count(*) as total from gudang where status='Y'");
+		$data = mysql_fetch_assoc($result);
+		return $data['total'];
+	}
+
+	// MENGHITUNG DATA GUDANG YANG AKTIF 
+	function hitung_gudang_nonaktif(){
+		$result =  mysql_query("select count(*) as total from gudang where status='N'");
 		$data = mysql_fetch_assoc($result);
 		return $data['total'];
 	}
@@ -30,6 +44,15 @@ class config{
 	// MENAPILKAN DATA GUDANG SECARA KESELURUHAN 
 	function data_gudang(){
 		$data = mysql_query("select * from gudang");
+		while($d = mysql_fetch_array($data)){
+			$hasil[] = $d;
+		}
+		return $hasil;
+	}
+
+	// MENAPILKAN DATA GUDANG AKTIF SECARA KESELURUHAN 
+	function data_gudang_aktif(){
+		$data = mysql_query("select * from gudang where status='Y'");
 		while($d = mysql_fetch_array($data)){
 			$hasil[] = $d;
 		}
@@ -80,6 +103,11 @@ class config{
 	// PROSES UPDATE GUDANG
 	function update_gudang($id,$nama, $ktgr, $long, $lat){
 		mysql_query("update gudang set nama = '$nama',kategori = '$ktgr', longitude = '$long',latitude = '$lat' where id = '$id'");
+	}
+
+	// PROSES UPDATE STATUS GUDANG
+	function update_sts_gudang($id,$status){
+		mysql_query("update gudang set status = '$status' where id = '$id'");
 	}	
 
 	

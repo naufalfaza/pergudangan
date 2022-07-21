@@ -38,6 +38,15 @@ $aksi = $_GET['aksi'];
  	// REDIRECT
  	header("location:pages/detail_gudang.php?id=".$_POST['id']);
 
+ // PROSES UPDATE STATUS GUDANG
+ }elseif($aksi == "update_status_gudang"){
+
+ 	// PROSES UPDATE
+    $db->update_sts_gudang($_POST['id'],$_POST['status']);
+ 	
+ 	// REDIRECT
+ 	header("location:pages/detail_gudang.php?id=".$_POST['id']);
+
  // PROSES SEARCH PAGE
  }elseif($aksi == "search"){
  	if (strtoupper($_POST['cari']) == "BARANG") {
