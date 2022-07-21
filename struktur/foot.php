@@ -47,9 +47,7 @@
         popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
     });
     
-    <?php 
-        foreach ($db->data_gudang() as $result) {
-    ?>
+    <?php foreach ($db->data_gudang() as $result) {?>
     L.marker([<?php echo $result['latitude']; ?>, <?php echo $result['longitude']; ?>], {icon: gudangIcon}).addTo(map).bindPopup('<b><?php echo $result['nama'] ." ".$result['kategori']; ?></b>');
     <?php } ?>
 </script>
